@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "TrackMyRoutine",
+  "short_name": "TrackMyRoutine",
+  "description": "Tu progreso, serie a serie",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8f5",
+  "theme_color": "#1e3024",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

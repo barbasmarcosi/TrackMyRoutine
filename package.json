@@ -1,0 +1,13 @@
+{
+  "name": "trackmyroutine",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SPA sin dependencias para seguimiento de entrenamientos",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/domain.js && node --check src/app.js",
+    "verify": "npm run check && npm test",
+    "build": "npm run verify && node scripts/build.mjs"
+  }
+}

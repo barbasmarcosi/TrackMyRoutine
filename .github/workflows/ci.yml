@@ -13,4 +13,21 @@ jobs:
         with:
           node-version: '22'
       - name: Syntax and model tests
-        run: npm run verify
+        run: npm run build
+      - name: Browser dependencies
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.0
+          npx playwright install --with-deps chromium
+      - name: Real browser tests (mobile and desktop)
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory dist >/tmp/trackmyroutine-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node tests/browser.mjs
+      - name: Upload browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trackmyroutine-browser-screenshots
+          path: screenshots/
+          if-no-files-found: ignore

@@ -118,7 +118,7 @@ function exerciseCard(item, index, session, previous) {
 }
 function workoutEditor(session) {
   const previous = lastFinished(data, session.dayId, session.id)
-  return `${hero('Cada serie cuenta.', 'Cargá el peso y las repeticiones, marcá la serie como lista y seguí. Los valores vienen de tu última sesión.', 'TU SESIÓN ACTUAL')}
+  return `<p class="kicker" style="margin:12px 0 14px">TU ENTRENAMIENTO · CARGA RÁPIDA</p>
     ${workoutHeader(session)}
     ${session.exercises.length ? session.exercises.map((ex, index) => exerciseCard(ex, index, session, previous)).join('') : `<div class="empty"><h3>Agregá un ejercicio</h3><p>Empezá por crear el primero de esta sesión.</p></div>`}
     ${addExerciseOpen ? exerciseForm('session') : `<button class="btn soft full" data-action="toggle-exercise">+ Agregar otro ejercicio</button>`}
